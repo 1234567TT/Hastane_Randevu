@@ -15,7 +15,10 @@ namespace Hastane_Randevu.Controllers
             return View();
         }
 
-
+        public IActionResult _Admin_()
+        {
+            return View();
+        }
         private readonly HospitalDbContext _dbcontext;
         public AccountController(HospitalDbContext context)
         {
@@ -32,6 +35,14 @@ namespace Hastane_Randevu.Controllers
         {
             return View(new Register());
         }
+        public IActionResult Viewss()
+        {
+            return View();
+        }
+
+
+
+
         [HttpPost]
         public IActionResult Register(Register user)
         {
@@ -59,10 +70,14 @@ namespace Hastane_Randevu.Controllers
 
         [HttpPost]
         public IActionResult Login(User model)
-
         {
             if (ModelState.IsValid)
             {
+                if(model.Email== "B201210597@sakarya.edu.tr"&&model.Password=="sau")
+                {
+                    return RedirectToAction("Viewss", "Account");
+
+                }
                 var users = _dbcontext.Registers.FirstOrDefault(x => x.Email == model.Email);
                 if (users != null && users.Password == model.Password)
                 {
