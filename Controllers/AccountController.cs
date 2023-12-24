@@ -25,6 +25,7 @@ namespace Hastane_Randevu.Controllers
             _dbcontext = context;
         }
 
+
         public IActionResult A()
         {
             return View();
@@ -37,6 +38,8 @@ namespace Hastane_Randevu.Controllers
         }
         public IActionResult Viewss()
         {
+
+
             return View();
         }
 
@@ -75,7 +78,7 @@ namespace Hastane_Randevu.Controllers
             {
                 if(model.Email== "B201210597@sakarya.edu.tr"&&model.Password=="sau")
                 {
-                    return RedirectToAction("Viewss", "Account");
+                    return RedirectToAction("Doktor", "Admin");
 
                 }
                 var users = _dbcontext.Registers.FirstOrDefault(x => x.Email == model.Email);
