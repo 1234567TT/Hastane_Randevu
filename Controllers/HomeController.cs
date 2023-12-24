@@ -13,6 +13,16 @@ namespace Hastane_Randevu.Controllers
             _logger = logger;
         }
 
+
+
+
+
+
+
+
+
+
+
         public IActionResult Index()
         {
             return View();
