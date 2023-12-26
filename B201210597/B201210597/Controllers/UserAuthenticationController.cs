@@ -54,21 +54,21 @@ namespace B201210597.Controllers
             return RedirectToAction(nameof(Login));
         }
 
-        [AllowAnonymous]
-        public async Task<IActionResult> RegisterAdmin()
-        {
-            RegistrationModel model = new RegistrationModel
-            {
-                Username = "B201210597@sakarya.edu.tr",
-                Email = "admin@gmail.com",
-                Name = "John",
+        //[AllowAnonymous]
+        //public async Task<IActionResult> RegisterAdmin()
+        //{
+        //    RegistrationModel model = new RegistrationModel
+        //    {
+        //        Username = "B201210597@sakarya.edu.tr.",
+        //        Email = "admin@gmail.com",
+        //        Name = "John",
                 
-                Password = "sau"
-            };
-            model.Role = "admin";
-            var result = await this._authService.RegistrationAsync(model);
-            return Ok(result);
-        }
+        //        Password = "sauSAU12345@#"
+        //    };
+        //    model.Role = "admin";
+        //    var result = await this._authService.RegistrationAsync(model);
+        //    return Ok(result);
+        //}
         //[Authorize]
         //public IActionResult ChangePassword()
         //{
