@@ -23,6 +23,8 @@ namespace Hastane_Randevu.Controllers
         public AccountController(HospitalDbContext context)
         {
             _dbcontext = context;
+
+
         }
 
 
