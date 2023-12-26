@@ -1,9 +1,10 @@
 ﻿using Hastane_Randevu.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hastane_Randevu.Data
 {
-    public class HospitalDbContext : DbContext
+    public class HospitalDbContext : IdentityDbContext<User>
     {
         
        

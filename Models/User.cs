@@ -1,9 +1,10 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hastane_Randevu.Models
 {
-    public class User
+    public class User: IdentityUser
     {
         [DefaultValue(0)]
         public int Id { get; set; }

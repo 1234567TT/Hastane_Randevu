@@ -1,6 +1,6 @@
 ﻿namespace Hastane_Randevu.Models
 {
-    public class Users
+    public class Users 
     {
         public int UsersId { get; set; }
         public string UsersName { get; set; }

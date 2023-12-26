@@ -265,3 +265,8 @@ C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\r
 C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
