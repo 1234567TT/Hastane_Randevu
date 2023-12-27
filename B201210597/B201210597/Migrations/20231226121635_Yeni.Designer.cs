@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace B201210597.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231226070346_Bessam")]
-    partial class Bessam
+    [Migration("20231226121635_Yeni")]
+    partial class Yeni
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -110,14 +110,14 @@ namespace B201210597.Migrations
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsersId")
+                    b.Property<int>("KullaniciId")
                         .HasColumnType("int");
 
                     b.HasKey("AppointmentId");
 
                     b.HasIndex("DoctorId");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("KullaniciId");
 
                     b.ToTable("Appointments");
                 });
@@ -191,25 +191,25 @@ namespace B201210597.Migrations
                     b.ToTable("Clinics");
                 });
 
-            modelBuilder.Entity("B201210597.Models.DTO.Users", b =>
+            modelBuilder.Entity("B201210597.Models.DTO.Kullanici", b =>
                 {
-                    b.Property<int>("UsersId")
+                    b.Property<int>("KullaniciId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsersId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KullaniciId"), 1L, 1);
+
+                    b.Property<string>("KullaniciName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UsersName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("KullaniciId");
 
-                    b.HasKey("UsersId");
-
-                    b.ToTable("Userss");
+                    b.ToTable("Kullanici");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -353,15 +353,15 @@ namespace B201210597.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("B201210597.Models.DTO.Users", "Users")
+                    b.HasOne("B201210597.Models.DTO.Kullanici", "Kullanici")
                         .WithMany("Appointments")
-                        .HasForeignKey("UsersId")
+                        .HasForeignKey("KullaniciId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Doctor");
 
-                    b.Navigation("Users");
+                    b.Navigation("Kullanici");
                 });
 
             modelBuilder.Entity("B201210597.Models.DTO.Doctor", b =>
@@ -452,7 +452,7 @@ namespace B201210597.Migrations
                     b.Navigation("Doctors");
                 });
 
-            modelBuilder.Entity("B201210597.Models.DTO.Users", b =>
+            modelBuilder.Entity("B201210597.Models.DTO.Kullanici", b =>
                 {
                     b.Navigation("Appointments");
                 });

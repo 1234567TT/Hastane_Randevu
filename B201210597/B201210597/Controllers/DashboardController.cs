@@ -8,6 +8,14 @@ namespace B201210597.Controllers
     {
         public IActionResult Display()
         {
+
+
+            if (User.IsInRole("admin"))
+            {
+
+                return RedirectToAction("Display", "Admin");
+            
+            }
             return View();
         }
     }

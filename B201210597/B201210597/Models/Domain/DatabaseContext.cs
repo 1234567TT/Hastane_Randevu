@@ -17,23 +17,15 @@ namespace B201210597.Models.Domain
         public DbSet<Department> Departments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Users> Userss { get; set; }
+        public DbSet<Kullanici> Kullanici { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
 
-          
-            base.OnModelCreating(modelBuilder);
 
-            // IdentityUserLogin<string> için anahtar tanımı
-            modelBuilder.Entity<IdentityUserLogin<string>>()
-                .HasKey(p => new { p.LoginProvider, p.ProviderKey });
 
-            // Diğer konfigürasyonlar buraya eklenebilir.
-        
 
-        // İlişkileri tanımla
-        modelBuilder.Entity<Clinic>()
+            modelBuilder.Entity<Clinic>()
                 .HasOne(c => c.Department)
                 .WithMany(d => d.Clinics)
                 .HasForeignKey(c => c.DepartmentId);
@@ -44,14 +36,21 @@ namespace B201210597.Models.Domain
                 .HasForeignKey(d => d.ClinicId);
 
             modelBuilder.Entity<Appointment>()
-                .HasOne(a => a.Users)
+                .HasOne(a => a.Kullanici)
                 .WithMany(u => u.Appointments)
-                .HasForeignKey(a => a.UsersId);
+                .HasForeignKey(a => a.KullaniciId);
 
             modelBuilder.Entity<Appointment>()
                 .HasOne(a => a.Doctor)
                 .WithMany(d => d.Appointments)
                 .HasForeignKey(a => a.DoctorId);
+
+
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<IdentityUserLogin<string>>();
+
+
         }
 
     }

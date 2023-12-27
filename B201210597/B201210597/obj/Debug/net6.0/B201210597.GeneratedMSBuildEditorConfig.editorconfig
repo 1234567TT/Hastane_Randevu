@@ -16,8 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu\B201210597\B201210597
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/DeleteDoktor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlRG9rdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/Display.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGlzcGxheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/Doktor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRG9rdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Dashboard/Display.cshtml]

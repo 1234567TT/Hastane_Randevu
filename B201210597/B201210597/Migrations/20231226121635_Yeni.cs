@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace B201210597.Migrations
 {
-    public partial class Bessam : Migration
+    public partial class Yeni : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,17 +64,17 @@ namespace B201210597.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Userss",
+                name: "Kullanici",
                 columns: table => new
                 {
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    KullaniciId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UsersName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    KullaniciName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Userss", x => x.UsersId);
+                    table.PrimaryKey("PK_Kullanici", x => x.KullaniciId);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,7 +232,7 @@ namespace B201210597.Migrations
                     AppointmentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AppointmentDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false),
+                    KullaniciId = table.Column<int>(type: "int", nullable: false),
                     DoctorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -245,10 +245,10 @@ namespace B201210597.Migrations
                         principalColumn: "DoctorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Appointments_Userss_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Userss",
-                        principalColumn: "UsersId",
+                        name: "FK_Appointments_Kullanici_KullaniciId",
+                        column: x => x.KullaniciId,
+                        principalTable: "Kullanici",
+                        principalColumn: "KullaniciId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -258,9 +258,9 @@ namespace B201210597.Migrations
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_UsersId",
+                name: "IX_Appointments_KullaniciId",
                 table: "Appointments",
-                column: "UsersId");
+                column: "KullaniciId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -336,7 +336,7 @@ namespace B201210597.Migrations
                 name: "Doctors");
 
             migrationBuilder.DropTable(
-                name: "Userss");
+                name: "Kullanici");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

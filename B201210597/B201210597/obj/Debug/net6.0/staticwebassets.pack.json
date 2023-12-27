@@ -5,12 +5,36 @@
       "PackagePath": "staticwebassets\\B201210597.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\b.jpg",
+      "PackagePath": "staticwebassets\\b.jpg"
+    },
+    {
       "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\i.jpg",
+      "PackagePath": "staticwebassets\\i.jpg"
+    },
+    {
+      "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\im.jpg",
+      "PackagePath": "staticwebassets\\im.jpg"
+    },
+    {
+      "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\imag.jpg",
+      "PackagePath": "staticwebassets\\imag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\images.jpg",
+      "PackagePath": "staticwebassets\\images.jpg"
+    },
+    {
+      "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\images1.jpg",
+      "PackagePath": "staticwebassets\\images1.jpg"
     },
     {
       "Id": "C:\\Users\\APC\\OneDrive\\Desktop\\Hastane_Randevu\\Hastane_Randevu\\B201210597\\B201210597\\wwwroot\\js\\site.js",

@@ -1,14 +1,15 @@
 ﻿@model B201210597.Models.DTO.LoginModel
 
 
+
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <img src="im.jpg" class="img-fluid" alt="Image">
+                <img src="~/im.jpg" class="img-fluid" alt="Image">
             </div>
-        </div>
     </div>
-
+    </div>
     <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -29,7 +30,7 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Giriş Yap</button>
-                        <a href="@Url.Action("Registration", "UserAuthentication")" class="btn btn-primary">Üye Ol</a>
+                    <a href="/UserAuthentication/Registration" class="btn btn-primary">Üye Ol</a>
                     </div>
                 </form>
             </div>

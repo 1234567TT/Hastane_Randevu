@@ -13,6 +13,27 @@ namespace B201210597.Controllers
         {
             this._authService = authService;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            var result = await _authService.LoginAsync(model);
+            if (result.StatusCode == 1)
+            {
+
+                return RedirectToAction("Display", "Dashboard");
+            }
+            else
+
+            {
+                TempData["msg"] = result.Message;
+                return RedirectToAction(nameof(Login));
+            }
+        }
+
+
         public IActionResult Login()
         {
             return View();
@@ -31,22 +52,7 @@ namespace B201210597.Controllers
             return RedirectToAction(nameof(Registration));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginModel model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
-            var result = await _authService.LoginAsync(model);
-            if (result.StatusCode == 1)
-            {
-                return RedirectToAction("Display", "Dashboard");
-            }
-            else
-            {
-                TempData["msg"] = result.Message;
-                return RedirectToAction(nameof(Login));
-            }
-        }
+       
         [Authorize]
         public async Task<IActionResult> Logout()
         {
