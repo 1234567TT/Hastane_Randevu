@@ -17,12 +17,10 @@
                 <h1 class="mx-auto" style="color: green;">Hastane randevu rezervasyon sistemi</h1>
             </div>
             
-             @if (!string.IsNullOrEmpty(User.Identity.Name))
-                {
-                  //  <li><a href="/UserAuthentication/ChangePassword">ChangePassword</a></li>
-                    <li><a href="/UserAuthentication/Logout">Logout</a></li>
-                }
-            
+             
+           <a class="btn btn-primary" style="color: black;" href="/UserAuthentication/Logout">Logout</a>
+                
+             
         </nav>
     </header>
 <body>

@@ -1,9 +1,13 @@
-﻿namespace B201210597.Models.DTO
-{
-    using System.Numerics;
+﻿using System.Numerics;
+using B201210597.Models.DTO;
 
-    namespace Hastane_Randevu.Models
-    {
+
+namespace B201210597.Models.DTO
+{
+    
+	
+
+   
         public class Clinic
         {
             public int ClinicId { get; set; }
@@ -15,5 +19,5 @@
             public List<Doctor> Doctors { get; set; }
         }
 
-    }
+  
 }

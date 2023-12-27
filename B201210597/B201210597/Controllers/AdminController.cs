@@ -31,14 +31,16 @@ namespace B201210597.Controllers
 
         public IActionResult Doktor()
         {
-            IEnumerable<Doctor> Opject = _db.Doctors;
+			
+			IEnumerable<Doctor> Opject = _db.Doctors;
             return View(Opject);
 
             
         }
         public IActionResult CreateDoctor()
         {
-            return View();
+
+			return View();
         }
 
         //POST
@@ -50,14 +52,14 @@ namespace B201210597.Controllers
             //{
             //    ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
             //}
-            if (ModelState.IsValid)
-            {
+         //   if (ModelState.IsValid)
+            
                 _db.Doctors.Add(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Category created successfully";
-                return RedirectToAction("Display");
-            }
-            return View(obj);
+                return RedirectToAction("Doktor");
+            
+          
         }
 
         //GET
@@ -88,14 +90,12 @@ namespace B201210597.Controllers
             //{
             //    ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
             //}
-            if (ModelState.IsValid)
-            {
+           
                 _db.Doctors.Update(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Category updated successfully";
-                return RedirectToAction("Display");
-            }
-            return View(obj);
+                return RedirectToAction("Doktor");
+           
         }
 
         public IActionResult DeleteDoktor(int? id)
@@ -117,7 +117,7 @@ namespace B201210597.Controllers
         }
 
         //POST
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteDoktor")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOSTDoktor(int? id)
         {
@@ -130,7 +130,7 @@ namespace B201210597.Controllers
             _db.Doctors.Remove(obj);
             _db.SaveChanges();
             TempData["success"] = "Category deleted successfully";
-            return RedirectToAction("Display");
+            return RedirectToAction("Doktor");
 
         }
 

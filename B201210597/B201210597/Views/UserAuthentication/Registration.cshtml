@@ -4,10 +4,17 @@
 @*<link href="/css/bootstrap.min.css" rel="stylesheet" />
 @Html.ValidationSummary()
 
-
 *@
-
-
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <img src="~/i.jpg" class="img-fluid" alt="Image">
+        </div>
+    </div>
+</div>
 
 
 <form  asp-action="Registration" method="post">
@@ -50,13 +57,13 @@
     }
 
 
-
-
     <button type="submit" class="btn btn-primary">Registration</button>
     <a class="btn btn-primary" href="/UserAuthentication/Login">Login</a>
 
 </form>
-
+        </div>
+    </div>
+</div>
 
 
 

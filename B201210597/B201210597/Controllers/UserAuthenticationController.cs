@@ -65,11 +65,11 @@ namespace B201210597.Controllers
         //{
         //    RegistrationModel model = new RegistrationModel
         //    {
-        //        Username = "B201210597@sakarya.edu.tr.",
+        //        Username = "B201210597@sakarya.edu.tr",
         //        Email = "admin@gmail.com",
         //        Name = "John",
-                
-        //        Password = "sauSAU12345@#"
+
+        //        Password = "SAUsau1234@#"
         //    };
         //    model.Role = "admin";
         //    var result = await this._authService.RegistrationAsync(model);

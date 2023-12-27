@@ -4,7 +4,7 @@
 
 namespace B201210597.Migrations
 {
-    public partial class Yeniı : Migration
+    public partial class Yenii : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace B201210597.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231226121635_Yeni")]
+    [Migration("20231227111159_Yeni")]
     partial class Yeni
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,6 +122,28 @@ namespace B201210597.Migrations
                     b.ToTable("Appointments");
                 });
 
+            modelBuilder.Entity("B201210597.Models.DTO.Clinic", b =>
+                {
+                    b.Property<int>("ClinicId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClinicId"), 1L, 1);
+
+                    b.Property<string>("ClinicName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClinicId");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.ToTable("Clinics");
+                });
+
             modelBuilder.Entity("B201210597.Models.DTO.Department", b =>
                 {
                     b.Property<int>("DepartmentId")
@@ -167,28 +189,6 @@ namespace B201210597.Migrations
                     b.HasIndex("ClinicId");
 
                     b.ToTable("Doctors");
-                });
-
-            modelBuilder.Entity("B201210597.Models.DTO.Hastane_Randevu.Models.Clinic", b =>
-                {
-                    b.Property<int>("ClinicId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClinicId"), 1L, 1);
-
-                    b.Property<string>("ClinicName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ClinicId");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.ToTable("Clinics");
                 });
 
             modelBuilder.Entity("B201210597.Models.DTO.Kullanici", b =>
@@ -364,18 +364,7 @@ namespace B201210597.Migrations
                     b.Navigation("Kullanici");
                 });
 
-            modelBuilder.Entity("B201210597.Models.DTO.Doctor", b =>
-                {
-                    b.HasOne("B201210597.Models.DTO.Hastane_Randevu.Models.Clinic", "Clinic")
-                        .WithMany("Doctors")
-                        .HasForeignKey("ClinicId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Clinic");
-                });
-
-            modelBuilder.Entity("B201210597.Models.DTO.Hastane_Randevu.Models.Clinic", b =>
+            modelBuilder.Entity("B201210597.Models.DTO.Clinic", b =>
                 {
                     b.HasOne("B201210597.Models.DTO.Department", "Department")
                         .WithMany("Clinics")
@@ -384,6 +373,17 @@ namespace B201210597.Migrations
                         .IsRequired();
 
                     b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("B201210597.Models.DTO.Doctor", b =>
+                {
+                    b.HasOne("B201210597.Models.DTO.Clinic", "Clinic")
+                        .WithMany("Doctors")
+                        .HasForeignKey("ClinicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Clinic");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -437,6 +437,11 @@ namespace B201210597.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("B201210597.Models.DTO.Clinic", b =>
+                {
+                    b.Navigation("Doctors");
+                });
+
             modelBuilder.Entity("B201210597.Models.DTO.Department", b =>
                 {
                     b.Navigation("Clinics");
@@ -445,11 +450,6 @@ namespace B201210597.Migrations
             modelBuilder.Entity("B201210597.Models.DTO.Doctor", b =>
                 {
                     b.Navigation("Appointments");
-                });
-
-            modelBuilder.Entity("B201210597.Models.DTO.Hastane_Randevu.Models.Clinic", b =>
-                {
-                    b.Navigation("Doctors");
                 });
 
             modelBuilder.Entity("B201210597.Models.DTO.Kullanici", b =>

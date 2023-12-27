@@ -1,4 +1,4 @@
-﻿using B201210597.Models.DTO.Hastane_Randevu.Models;
+﻿using B201210597.Models.DTO;
 using B201210597.Models.DTO;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

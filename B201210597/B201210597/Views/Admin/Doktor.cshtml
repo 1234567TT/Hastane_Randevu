@@ -17,11 +17,19 @@
         <div class="container-fluid text-center">
             <h1 class="mx-auto" style="color: blue;">[ADMİN SAYFA]</h1>
         </div>
+                <a href="cikis" class="btn btn-primary" style="color: black;">ÇIKIŞ</a>
 
        
     </nav>
+
+
+
 </header>
 <body>
+    <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
     <div class="container">
         <main role="main" class="pb-3">
 
@@ -30,7 +38,7 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Category List</h2>
+            <h2 class="text-primary">Doktor List</h2>
         </div>
         <div class="col-6 text-end">
                 <a asp-controller="Admin" asp-action="CreateDoctor" class="btn btn-primary">
@@ -92,6 +100,9 @@
         </tbody>
 
     </table>
+        <a asp-controller="Admin" asp-action="Display" class="btn btn-secondary" style="width:150px">
+            Back to List
+        </a>
 </div>
     </main>
 
