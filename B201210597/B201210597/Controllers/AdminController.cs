@@ -2,6 +2,7 @@
 using B201210597.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace B201210597.Controllers
@@ -39,9 +40,11 @@ namespace B201210597.Controllers
         }
         public IActionResult CreateDoctor()
         {
+			Doctor doctor = new Doctor(); 
+            doctor.Clinics=_db.Clinics.ToList();
+			return View(doctor);
 
-			return View();
-        }
+		}
 
         //POST
         [HttpPost]

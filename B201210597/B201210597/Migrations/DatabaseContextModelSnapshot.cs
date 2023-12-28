@@ -135,9 +135,14 @@ namespace B201210597.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("DoctorId")
+                        .HasColumnType("int");
+
                     b.HasKey("ClinicId");
 
                     b.HasIndex("DepartmentId");
+
+                    b.HasIndex("DoctorId");
 
                     b.ToTable("Clinics");
                 });
@@ -370,6 +375,10 @@ namespace B201210597.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("B201210597.Models.DTO.Doctor", null)
+                        .WithMany("Clinics")
+                        .HasForeignKey("DoctorId");
+
                     b.Navigation("Department");
                 });
 
@@ -448,6 +457,8 @@ namespace B201210597.Migrations
             modelBuilder.Entity("B201210597.Models.DTO.Doctor", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("Clinics");
                 });
 
             modelBuilder.Entity("B201210597.Models.DTO.Kullanici", b =>

@@ -12,12 +12,12 @@ namespace B201210597.Models.Domain
         {
 
         }
-       
-        public DbSet<Clinic> Clinics { get; set; }
-        public DbSet<Department> Departments { get; set; }
+		public DbSet<Department> Departments { get; set; }
+
+		public DbSet<Clinic> Clinics { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Kullanici> Kullanici { get; set; }
+        public DbSet<Kullanici> Kullaniciler { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

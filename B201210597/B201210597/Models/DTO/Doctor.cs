@@ -11,8 +11,9 @@ namespace B201210597.Models.DTO
 
         public int ClinicId { get; set; }
         public Clinic Clinic { get; set; }
+		public List<Clinic> Clinics { get; set; }
 
-        public List<Appointment> Appointments { get; set; }
+		public List<Appointment> Appointments { get; set; }
     }
 
 }
