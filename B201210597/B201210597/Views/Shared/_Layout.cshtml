@@ -10,20 +10,32 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WEB_PROJE.styles.css" asp-append-version="true" />
 
+
 </head>
  <header>
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+              <a class="nav-link dropdown-toggle btn btn-info" href="#" style="width: 10%; id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        DİL SEÇ
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">TÜRKÇE</a></li>
+           
+     <li><a class="dropdown-item" href="#">ARAPÇA</a></li>
+        <li><a class="dropdown-item" href="#">İNGLİZCE</a></li>
+    </ul>
             <div class="container-fluid text-center">
                 <h1 class="mx-auto" style="color: green;">Hastane randevu rezervasyon sistemi</h1>
+           
             </div>
             
-             
-           <a class="btn btn-primary" style="color: black;" href="/UserAuthentication/Logout">Logout</a>
-                
-             
+             <div>
+           <a class="btn btn-primary" style="color: black;" href="/UserAuthentication/Logout">ÇIKIŞ</a>
+        </div>
         </nav>
     </header>
 <body>
+  
     <div class="container">
         <main role="main" class="pb-3">
          
@@ -61,3 +73,51 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+
+               @*     <div id="list-example" class="list-group">
+  <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+  <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+  <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+  <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+</div>
+<div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+  <h4 id="list-item-1">Item 1</h4>
+  <p>...</p>
+  <h4 id="list-item-2">Item 2</h4>
+  <p>...</p>
+  <h4 id="list-item-3">Item 3</h4>
+  <p>...</p>
+  <h4 id="list-item-4">Item 4</h4>
+  <p>...</p>
+</div>
+*@
+
+
+
+
+  <div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-light" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>

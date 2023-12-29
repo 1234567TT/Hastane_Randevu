@@ -1,6 +1,8 @@
 ﻿@{
     Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +15,17 @@
   </head>
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+         @* <a class="nav-link dropdown-toggle btn btn-info" href="#" style="width: 10%; id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+
+*@
         <div class="container-fluid text-center">
             <h1 class="mx-auto" style="color: green;">[ADMİN SAYFA]</h1>
         </div>
@@ -24,6 +37,8 @@
 <div class="container-fluid mt-5 vw-100">
     <div class="row content-center">
         <div class="col-md-6 mx-auto">
+             
+
             <img src="~/b.jpg" class="img-fluid" alt="Image" style="width: 1000px; height: auto;">
         </div>
     </div>
@@ -32,15 +47,21 @@
 <div class="container-fluid content-center text-center">
     <div class="row">
         <div class="col-md-12">
-            <a href="/Admin/Doktor" class="btn btn-primary" style="color: black;">Doktor</a>
-            <button type="button" class="btn btn-primary" style="color: black;">Kullanici</button>
-            <a href="/CallDepartmenAPI/Index" class="btn btn-primary" style="color: black;">Departman</a>
-            <button type="button" class="btn btn-primary" style="color: black;">rendevu</button>
-            <button type="button" class="btn btn-primary" style="color: black;">Kilinik</button>
-            <button type="button" class="btn btn-primary" style="color: black;">Personal</button>
-            <button type="button" class="btn btn-primary" style="color: black;">Ampalus</button>
-            <button type="button" class="btn btn-primary" style="color: black;">Elmanlar</button>
-            <button type="button" class="btn btn-primary" style="color: black;">Araclar</button>
+            <a href="/Admin/Doktor" class="btn btn-primary" style="color: white;">Doktor</a>
+            <button type="button" class="btn btn-primary" style="color: white">Kullanici</button>
+            <a href="/CallDepartmenAPI/Index" class="btn btn-primary" style="color: white;">Departman</a>
+            <button type="button" class="btn btn-primary" style="color: white;">rendevu</button>
+            <button type="button" class="btn btn-primary" style="color: white;">Kilinik</button>
+            <button type="button" class="btn btn-primary" style="color: white;">Personal</button>
+            <button type="button" class="btn btn-primary" style="color: white;">Ampalus</button>
+            <button type="button" class="btn btn-primary" style="color: white;">Elmanlar</button>
+            <button type="button" class="btn btn-primary" style="color: white;">Araclar</button>
+            <div id="list-example" class="list-group">
+                <a class="list-group-item list-group-item-action btn btn-primary" style="color: black;" href="@Url.Action("Doktor", "Admin")">Api Postman </a>
+                <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+            </div>
         </div>
     </div>
 </div>

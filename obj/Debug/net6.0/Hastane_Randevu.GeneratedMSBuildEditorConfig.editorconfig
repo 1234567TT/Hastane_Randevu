@@ -16,12 +16,36 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\APC\OneDrive\Desktop\Hastane_Randevu\Hastane_Randevu
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/CreateDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXEFkbWluXENyZWF0ZURvY3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/DeleteDoktor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXEFkbWluXERlbGV0ZURva3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/Display.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXEFkbWluXERpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/Doktor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXEFkbWluXERva3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Admin/EditDoktor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXEFkbWluXEVkaXREb2t0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/CallDepartmenAPI/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXENhbGxEZXBhcnRtZW5BUElcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Dashboard/Display.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXERhc2hib2FyZFxEaXNwbGF5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Departments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QjIwMTIxMDU5N1xCMjAxMjEwNTk3XFZpZXdzXERlcGFydG1lbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Home/Index.cshtml]
