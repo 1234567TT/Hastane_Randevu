@@ -14,5 +14,7 @@ namespace B201210597.Models.DTO
         public Doctor Doctor { get; set; }
         public List<Doctor> Doctors { get; internal set; }
         public List<Kullanici> KullaniciLer { get; internal set; }
+        public List<Clinic> Clinics { get; internal set; }
+        public List<Department> Departments { get; internal set; }
     }
 }

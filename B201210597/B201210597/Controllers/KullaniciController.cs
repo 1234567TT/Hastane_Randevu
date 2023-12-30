@@ -1,5 +1,6 @@
 ﻿using B201210597.Models.Domain;
 using B201210597.Models.DTO;
+using B201210597.Repositories.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -10,13 +11,17 @@ namespace B201210597.Controllers
 
     public class KullaniciController : Controller
     {
-        private readonly DatabaseContext _db;
+		private readonly IUserAuthenticationService _authService;
+		private readonly DatabaseContext _db;
 
-        public KullaniciController(DatabaseContext db)
-        {
-            _db = db;
-        }
-        public IActionResult cikis()
+		public KullaniciController(IUserAuthenticationService authService, DatabaseContext dbContext)
+		{
+			this._authService = authService;
+			this._db = dbContext;
+		}
+
+
+		public IActionResult cikis()
         {
             return RedirectToAction("Logout", "UserAuthentication");
         }
@@ -117,7 +122,8 @@ namespace B201210597.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePostKullanici(int? id)
         {
-            var obj = _db.Kullaniciler.Find(id);
+
+			var obj = _db.Kullaniciler.Find(id);
             if (obj == null)
             {
                 return NotFound();

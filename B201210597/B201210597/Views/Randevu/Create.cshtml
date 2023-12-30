@@ -30,7 +30,7 @@
 			<form method="post">
 				<div class="border p-3 mt-4">
 					<div class="row pb-2">
-						<h2 class="text-primary">Doktor Ekle</h2>
+						<h2 class="text-primary">Randevu Ekle</h2>
 						<hr />
 					</div>
 					<div asp-validation-summary="All"></div>
@@ -43,15 +43,15 @@
 					<div class="mb-3">
 
 
-						<label asp-for="Kullanici"></label>
+						<label asp-for="Doctor"></label>
 
-						<select asp-for="KullaniciId" class="form-control select2" id="KullaniciId" style="width: 100%;">
+						<select asp-for="DoctorId" class="form-control select2" id="DoctorId" style="width: 100%;">
 							<option selected="selected" value="">Bos!</option>
-							@if (Model != null && Model.KullaniciLer != null)
+							@if (Model != null && Model.Doctors != null)
 							{
-								@foreach (var x in Model.KullaniciLer)
+								@foreach (var x in Model.Doctors)
 								{
-									<option value="@x.KullaniciId">@x.KullaniciName</option>
+									<option value="@x.DoctorId">@x.DoctorName</option>
 								}
 							}
 						</select>
@@ -79,8 +79,7 @@
 
 					<button type="submit" class="btn btn-primary" style="width:150px">Create</button>
 					<a asp-controller="Randevu" asp-action="Randevu" class="btn btn-secondary" style="width:150px">
-						Back to List
-					</a>
+Geri Don					</a>
 				</div>
 			</form>
 		</div>

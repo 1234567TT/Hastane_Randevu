@@ -1,0 +1,17 @@
+﻿@model List<string>
+
+<h2>Tables with Foreign Key containing specified DepartmentId</h2>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var tableName in Model)
+        {
+            <li>@tableName</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No tables found with a foreign key containing the specified DepartmentId.</p>
+}

@@ -8,7 +8,11 @@ namespace B201210597.Models.Domain
 {
     public class DatabaseContext : IdentityDbContext<ApplicationUser>
     {
-        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
+		public DatabaseContext()
+		{
+		}
+
+		public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
 
         }

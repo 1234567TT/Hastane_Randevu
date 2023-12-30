@@ -57,7 +57,7 @@ namespace B201210597.Controllers
             //POST
             [HttpPost]
             [ValidateAntiForgeryToken]
-            public IActionResult CreateDoctor(Appointment obj)
+            public IActionResult Create(Appointment obj)
             {
                 //if (obj.Name == obj.DisplayOrder.ToString())
                 //{
@@ -67,14 +67,14 @@ namespace B201210597.Controllers
 
                 _db.Appointments.Add(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Randevu created successfully";
+                TempData["success"] = "Randevu Eklendi";
                 return RedirectToAction("Randevu");
 
 
             }
 
             //GET
-            public IActionResult EditDoktor(int? id)
+            public IActionResult Edit(int? id)
             {
                 if (id == null || id == 0)
                 {
@@ -95,7 +95,7 @@ namespace B201210597.Controllers
             //POST
             [HttpPost]
             [ValidateAntiForgeryToken]
-            public IActionResult EditDoktor(Appointment obj)
+            public IActionResult Edit(Appointment obj)
             {
                 //if (obj.Name == obj.DisplayOrder.ToString())
                 //{
@@ -104,18 +104,18 @@ namespace B201210597.Controllers
 
                 _db.Appointments.Update(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Randevu updated successfully";
+                TempData["success"] = "Randevu Guncelendi";
                 return RedirectToAction("Randevu");
 
             }
 
-            public IActionResult DeleteDoktor(int? id)
+            public IActionResult Delete(int? id)
             {
                 if (id == null || id == 0)
                 {
                     return NotFound();
                 }
-                var categoryFromDb = _db.Doctors.Find(id);
+                var categoryFromDb = _db.Appointments.Find(id);
                 //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
                 //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
 
@@ -127,20 +127,20 @@ namespace B201210597.Controllers
             }
 
             //POST
-            [HttpPost, ActionName("DeleteDoktor")]
+            [HttpPost, ActionName("Delete")]
             [ValidateAntiForgeryToken]
-            public IActionResult DeletePOSTDoktor(int? id)
+            public IActionResult DeleteOost(int? id)
             {
-                var obj = _db.Doctors.Find(id);
+                var obj = _db.Appointments.Find(id);
                 if (obj == null)
                 {
                     return NotFound();
                 }
 
-                _db.Doctors.Remove(obj);
+                _db.Appointments.Remove(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category deleted successfully";
-                return RedirectToAction("Doktor");
+                TempData["success"] = "Randevu Silindi";
+                return RedirectToAction("Randevu");
 
             }
 

@@ -19,14 +19,36 @@ namespace B201210597.Controllers
             _db = db;
         }
 
+
+        public async Task<IActionResult> Index()
+        {
+            var handler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            };
+
+            var client = new HttpClient(handler);
+            var response = await client.GetAsync("https://localhost:7286/api/ApiDepartment");
+
+            List<Department> Departments = new List<Department>();
+            //var response = await client.GetAsync("https://localhost:7286/api/ApiDepartment");
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            Departments = JsonConvert.DeserializeObject<List<Department>>(jsonResponse);
+
+
+            return View(Departments);
+        }
+
+
+
         [HttpGet]
         
-                public ActionResult<IEnumerable<Department>> GetDoctors()
+                public ActionResult<IEnumerable<Department>> GetDeoartmas()
                 {
                     return Ok(_db.Departments);
                 }
         [HttpGet("{id}")]
-        public ActionResult<Department> GetDoctor(int id)
+        public ActionResult<Department> GetDepartman(int id)
         {
             var x = _db.Departments.FirstOrDefault(d => d.DepartmentId == id);
 
@@ -42,6 +64,14 @@ namespace B201210597.Controllers
         {
             
             
+            return View();
+
+        }
+
+        public IActionResult Delete()
+        {
+
+
             return View();
 
         }
@@ -111,26 +141,22 @@ namespace B201210597.Controllers
         //    return CreatedAtAction(nameof(GetDoctor), new { id = doctor.Id }, doctor);
         //}
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var x = _db.Departments.FirstOrDefault(d => d.DepartmentId == id);
 
+            if (x== null)
+            {
+                return NotFound();
+            }
 
-        public async Task<IActionResult> Index()
-		{
-			var handler = new HttpClientHandler
-			{
-				ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-			};
+            _db.Departments.Remove(x);
 
-			var client = new HttpClient(handler);
-			var response = await client.GetAsync("https://localhost:7286/api/ApiDepartment");
+            return NoContent();
+        }
 
-			List<Department> Departments = new List<Department>();
-			//var response = await client.GetAsync("https://localhost:7286/api/ApiDepartment");
-			var jsonResponse = await response.Content.ReadAsStringAsync();
-			Departments = JsonConvert.DeserializeObject<List<Department>>(jsonResponse);
-
-
-			return View(Departments);
-		}
+        
 
         public IActionResult cikis()
         {
@@ -139,6 +165,30 @@ namespace B201210597.Controllers
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

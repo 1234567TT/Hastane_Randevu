@@ -41,11 +41,11 @@
     <div class="container p-3">
         <div class="row pt-4">
             <div class="col-6">
-                <h2 class="text-primary">Doktor Liste</h2>
+                <h2 class="text-primary">Randevu Liste</h2>
             </div>
             <div class="col-6 text-end">
                 <a asp-controller="Randevu" asp-action="Create" class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> &nbsp; Yeni Doktor Ekle
+                    <i class="bi bi-plus-circle"></i> &nbsp; Yeni Randevu  Ekle
                 </a>
             </div>
         </div>
@@ -74,7 +74,7 @@
                 {
                     <tr>
                         <td width="50%">
-                            @obj.AppointmentDateTime
+                            @obj.AppointmentId
                         </td>
                         <td width="30%">
                             @obj.AppointmentDateTime
@@ -88,9 +88,9 @@
                         
                         <td>
                             <div class="w-75 btn-group" role="group">
-                                <a asp-controller="Randevu" asp-action="Edit" asp-route-id="@obj.DoctorId"
+                                <a asp-controller="Randevu" asp-action="Edit" asp-route-id="@obj.AppointmentId"
                                class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
-                                <a asp-controller="Randevu" asp-action="Delete" asp-route-id="@obj.DoctorId"
+                                <a asp-controller="Randevu" asp-action="Delete" asp-route-id="@obj.AppointmentId"
                                class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
                             </div>
                         </td>

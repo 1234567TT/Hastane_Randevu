@@ -17,7 +17,8 @@ namespace B201210597.Models.DTO
             public Department Department { get; set; }
 
             public List<Doctor> Doctors { get; set; }
-        }
+        public List<Department> Departments { get; internal set; }
+    }
 
   
 }

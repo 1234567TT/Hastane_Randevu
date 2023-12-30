@@ -1,4 +1,5 @@
-﻿using B201210597.Models.DTO;
+﻿using B201210597.Models.Domain;
+using B201210597.Models.DTO;
 using B201210597.Repositories.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,16 +9,23 @@ namespace B201210597.Controllers
     public class UserAuthenticationController : Controller
     {
 
-        private readonly IUserAuthenticationService _authService;
-        public UserAuthenticationController(IUserAuthenticationService authService)
-        {
-            this._authService = authService;
-        }
+		private readonly IUserAuthenticationService _authService;
+		private readonly DatabaseContext _dbContext;
+
+		public UserAuthenticationController(IUserAuthenticationService authService, DatabaseContext dbContext)
+		{
+			this._authService = authService;
+			this._dbContext = dbContext;
+		}
 
 
 
+		
+		
 
-        [HttpPost]
+
+
+		[HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
             if (!ModelState.IsValid)
@@ -26,7 +34,7 @@ namespace B201210597.Controllers
             if (result.StatusCode == 1)
             {
 
-                return RedirectToAction("Display", "Dashboard");
+                return RedirectToAction("Display", "KontrolPaneliDenetleyici");
             }
             else
 
@@ -47,6 +55,21 @@ namespace B201210597.Controllers
         [HttpPost]
         public async Task<IActionResult> Registration(RegistrationModel model)
         {
+            
+            Kullanici x = new Kullanici()
+            {
+				
+
+				KullaniciName = model.Name,
+         TC=model.Username,
+         Emial=model.Email,
+                Password=model.Password 
+
+			};
+         _dbContext.Kullaniciler.Add(x);
+            _dbContext.SaveChanges();
+
+
             if (!ModelState.IsValid) { return View(model); }
             model.Role = "user";
             var result = await this._authService.RegistrationAsync(model);
