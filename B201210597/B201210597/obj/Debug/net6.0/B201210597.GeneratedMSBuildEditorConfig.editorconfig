@@ -36,6 +36,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdERva3Rvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/CallDepartmenAPI/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsbERlcGFydG1lbkFQSVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/CallDepartmenAPI/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsbERlcGFydG1lbkFQSVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/CallDepartmenAPI/GetDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsbERlcGFydG1lbkFQSVxHZXREb2N0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/CallDepartmenAPI/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsbERlcGFydG1lbkFQSVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +66,34 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Kullanici/CreateKullanici.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3VsbGFuaWNpXENyZWF0ZUt1bGxhbmljaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Kullanici/DeleteKullanici.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3VsbGFuaWNpXERlbGV0ZUt1bGxhbmljaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Kullanici/EditKullanici.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3VsbGFuaWNpXEVkaXRLdWxsYW5pY2kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Kullanici/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3VsbGFuaWNpXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Kullanici/Kullanici.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3VsbGFuaWNpXEt1bGxhbmljaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Randevu/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZGV2dVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Randevu/Randevu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZGV2dVxSYW5kZXZ1LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Shared/Error.cshtml]

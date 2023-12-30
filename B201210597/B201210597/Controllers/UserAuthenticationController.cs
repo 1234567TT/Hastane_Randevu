@@ -14,6 +14,9 @@ namespace B201210597.Controllers
             this._authService = authService;
         }
 
+
+
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
@@ -32,7 +35,6 @@ namespace B201210597.Controllers
                 return RedirectToAction(nameof(Login));
             }
         }
-
 
         public IActionResult Login()
         {

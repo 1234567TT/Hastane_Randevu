@@ -68,23 +68,23 @@ namespace B201210597.Controllers
 				return Ok();
 			}
 		}
+       
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            var departmentToDelete = _db.Departments.FirstOrDefault(s => s.DepartmentId == id);
+            if (departmentToDelete == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _db.Remove(departmentToDelete);
+                _db.SaveChanges();
+                return Ok();
+            }
+        }
 
-		// DELETE api/<ApiDepartmentController>/5
-		[HttpDelete("{id}")]
-		public ActionResult Delete(int id)
-		{
-			var y1 = _db.Departments.FirstOrDefault(s => s.DepartmentId == id);
-			if (y1 != null)
-			{
-				return NotFound();
-			}
-			else
-			{
+    }
 
-				_db.Remove(y1);
-				_db.SaveChanges();
-				return Ok();
-			}
-		}
-	}
 }

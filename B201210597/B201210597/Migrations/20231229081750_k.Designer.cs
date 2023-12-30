@@ -4,6 +4,7 @@ using B201210597.Models.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace B201210597.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20231229081750_k")]
+    partial class k
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,9 +174,6 @@ namespace B201210597.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DoctorId"), 1L, 1);
 
-                    b.Property<int?>("AppointmentId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ClinicId")
                         .HasColumnType("int");
 
@@ -192,8 +191,6 @@ namespace B201210597.Migrations
 
                     b.HasKey("DoctorId");
 
-                    b.HasIndex("AppointmentId");
-
                     b.HasIndex("ClinicId");
 
                     b.ToTable("Doctors");
@@ -207,9 +204,6 @@ namespace B201210597.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KullaniciId"), 1L, 1);
 
-                    b.Property<int?>("AppointmentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("KullaniciName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -219,8 +213,6 @@ namespace B201210597.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("KullaniciId");
-
-                    b.HasIndex("AppointmentId");
 
                     b.ToTable("Kullaniciler");
                 });
@@ -394,10 +386,6 @@ namespace B201210597.Migrations
 
             modelBuilder.Entity("B201210597.Models.DTO.Doctor", b =>
                 {
-                    b.HasOne("B201210597.Models.DTO.Appointment", null)
-                        .WithMany("Doctors")
-                        .HasForeignKey("AppointmentId");
-
                     b.HasOne("B201210597.Models.DTO.Clinic", "Clinic")
                         .WithMany("Doctors")
                         .HasForeignKey("ClinicId")
@@ -405,13 +393,6 @@ namespace B201210597.Migrations
                         .IsRequired();
 
                     b.Navigation("Clinic");
-                });
-
-            modelBuilder.Entity("B201210597.Models.DTO.Kullanici", b =>
-                {
-                    b.HasOne("B201210597.Models.DTO.Appointment", null)
-                        .WithMany("KullaniciLer")
-                        .HasForeignKey("AppointmentId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -463,13 +444,6 @@ namespace B201210597.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("B201210597.Models.DTO.Appointment", b =>
-                {
-                    b.Navigation("Doctors");
-
-                    b.Navigation("KullaniciLer");
                 });
 
             modelBuilder.Entity("B201210597.Models.DTO.Clinic", b =>
