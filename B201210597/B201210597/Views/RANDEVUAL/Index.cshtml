@@ -1,17 +1,89 @@
-﻿@model List<string>
+﻿@model B201210597.Models.DTO.Appointment
 
-<h2>Tables with Foreign Key containing specified DepartmentId</h2>
 
-@if (Model.Any())
-{
-    <ul>
-        @foreach (var tableName in Model)
+
+ 
+
+
+
+
+<label>Departman Sec</label>
+                        <select class="form-control select2"  style="width: 100%;">
+    <option selected="selected" value="">Bos!</option>
+    @if (Model != null && Model.Departments != null)
+    {
+        @foreach (var x in Model.Departments)
         {
-            <li>@tableName</li>
+                    <option value="@x.DepartmentId">@x.DepartmentName</option>
+     
+       
         }
-    </ul>
-}
-else
-{
-    <p>No tables found with a foreign key containing the specified DepartmentId.</p>
-}
+   
+    
+    }
+</select>
+
+    <label>Klinik Sec</label>
+
+                        <select class="form-control select2"  style="width: 100%;">
+    <option selected="selected" value="">Bos!</option>
+    @if (Model != null && Model.Clinics != null)
+    {
+        @foreach (var x in Model.Clinics)
+        {
+          
+                <option value="@x.ClinicId">@x.ClinicName</option>
+            
+
+        }
+    }
+</select>
+ <label>Doktor Sec</label>
+
+                        <select class="form-control select2"  style="width: 100%;">
+    <option selected="selected" value="">Bos!</option>
+    @if (Model != null && Model.Doctors != null)
+    {
+        @foreach (var x in Model.Doctors)
+        {
+           
+            
+                            <option value="@x.DoctorId">@x.DoctorName</option>
+            
+
+        }
+    }
+</select>
+<label>GunLetr Sec</label>
+
+                        <select class="form-control select2"  style="width: 100%;">
+    <option selected="selected" value="">Bos!</option>
+    @if (Model != null && Model.Doctors != null)
+    {
+        @foreach (var x in Model.Doctors)
+        {
+
+
+                                    <option value="@x.DoctorId">@x.WorkingDays</option>
+
+
+        }
+    }
+</select>
+
+<label>Saat Sec</label>
+
+                        <select class="form-control select2"  style="width: 100%;">
+    <option selected="selected" value="">Bos!</option>
+    @if (Model != null && Model.Doctors != null)
+    {
+        @foreach (var x in Model.Doctors)
+        {
+
+
+                                            <option value="@x.DoctorId">@x.WorkingHours</option>
+
+
+        }
+    }
+</select>

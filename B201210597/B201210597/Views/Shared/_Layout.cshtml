@@ -30,13 +30,13 @@
             </div>
             @if(User.IsInRole("user"))
             {
-
+            <div>
+                <a class="btn btn-primary" style="color: black;" href="/UserAuthentication/Logout">ÇIKIŞ</a>
+            </div>
             }
 
 
-        <div>
-            <a class="btn btn-primary" style="color: black;" href="/UserAuthentication/Logout">ÇIKIŞ</a>
-        </div>
+       
         </nav>
 </header>
 
@@ -51,7 +51,7 @@
 @RenderBody()
 
     </div>
-    <a href="/RANDEVUAL/Index" class="btn btn-primary">Randevu Al</a>
+    <a href="/RandevuAl/Index" class="btn btn-primary">Randevu Al</a>
     <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">İletişim SAYFA</a>
 
     <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">Hastanada Genel Bilgiler</a>

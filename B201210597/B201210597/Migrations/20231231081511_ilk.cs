@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace B201210597.Migrations
 {
-    public partial class Yeni : Migration
+    public partial class ilk : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,33 +48,6 @@ namespace B201210597.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Departments",
-                columns: table => new
-                {
-                    DepartmentId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Departments", x => x.DepartmentId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Kullanici",
-                columns: table => new
-                {
-                    KullaniciId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    KullaniciName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Kullanici", x => x.KullaniciId);
                 });
 
             migrationBuilder.CreateTable(
@@ -184,48 +157,6 @@ namespace B201210597.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clinics",
-                columns: table => new
-                {
-                    ClinicId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ClinicName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DepartmentId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Clinics", x => x.ClinicId);
-                    table.ForeignKey(
-                        name: "FK_Clinics_Departments_DepartmentId",
-                        column: x => x.DepartmentId,
-                        principalTable: "Departments",
-                        principalColumn: "DepartmentId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Doctors",
-                columns: table => new
-                {
-                    DoctorId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DoctorName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WorkingDays = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WorkingHours = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ClinicId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Doctors", x => x.DoctorId);
-                    table.ForeignKey(
-                        name: "FK_Doctors_Clinics_ClinicId",
-                        column: x => x.ClinicId,
-                        principalTable: "Clinics",
-                        principalColumn: "ClinicId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Appointments",
                 columns: table => new
                 {
@@ -238,17 +169,101 @@ namespace B201210597.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Appointments", x => x.AppointmentId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Kullaniciler",
+                columns: table => new
+                {
+                    KullaniciId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    KullaniciName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TC = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Emial = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AppointmentId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kullaniciler", x => x.KullaniciId);
                     table.ForeignKey(
-                        name: "FK_Appointments_Doctors_DoctorId",
-                        column: x => x.DoctorId,
-                        principalTable: "Doctors",
-                        principalColumn: "DoctorId",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Kullaniciler_Appointments_AppointmentId",
+                        column: x => x.AppointmentId,
+                        principalTable: "Appointments",
+                        principalColumn: "AppointmentId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clinics",
+                columns: table => new
+                {
+                    ClinicId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClinicName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DepartmentId = table.Column<int>(type: "int", nullable: false),
+                    AppointmentId = table.Column<int>(type: "int", nullable: true),
+                    DoctorId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clinics", x => x.ClinicId);
                     table.ForeignKey(
-                        name: "FK_Appointments_Kullanici_KullaniciId",
-                        column: x => x.KullaniciId,
-                        principalTable: "Kullanici",
-                        principalColumn: "KullaniciId",
+                        name: "FK_Clinics_Appointments_AppointmentId",
+                        column: x => x.AppointmentId,
+                        principalTable: "Appointments",
+                        principalColumn: "AppointmentId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Departments",
+                columns: table => new
+                {
+                    DepartmentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AppointmentId = table.Column<int>(type: "int", nullable: true),
+                    ClinicId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departments", x => x.DepartmentId);
+                    table.ForeignKey(
+                        name: "FK_Departments_Appointments_AppointmentId",
+                        column: x => x.AppointmentId,
+                        principalTable: "Appointments",
+                        principalColumn: "AppointmentId");
+                    table.ForeignKey(
+                        name: "FK_Departments_Clinics_ClinicId",
+                        column: x => x.ClinicId,
+                        principalTable: "Clinics",
+                        principalColumn: "ClinicId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Doctors",
+                columns: table => new
+                {
+                    DoctorId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DoctorName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WorkingDays = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WorkingHours = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClinicId = table.Column<int>(type: "int", nullable: false),
+                    AppointmentId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doctors", x => x.DoctorId);
+                    table.ForeignKey(
+                        name: "FK_Doctors_Appointments_AppointmentId",
+                        column: x => x.AppointmentId,
+                        principalTable: "Appointments",
+                        principalColumn: "AppointmentId");
+                    table.ForeignKey(
+                        name: "FK_Doctors_Clinics_ClinicId",
+                        column: x => x.ClinicId,
+                        principalTable: "Clinics",
+                        principalColumn: "ClinicId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -302,20 +317,102 @@ namespace B201210597.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clinics_AppointmentId",
+                table: "Clinics",
+                column: "AppointmentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Clinics_DepartmentId",
                 table: "Clinics",
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clinics_DoctorId",
+                table: "Clinics",
+                column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Departments_AppointmentId",
+                table: "Departments",
+                column: "AppointmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Departments_ClinicId",
+                table: "Departments",
+                column: "ClinicId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Doctors_AppointmentId",
+                table: "Doctors",
+                column: "AppointmentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Doctors_ClinicId",
                 table: "Doctors",
                 column: "ClinicId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Kullaniciler_AppointmentId",
+                table: "Kullaniciler",
+                column: "AppointmentId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Appointments_Doctors_DoctorId",
+                table: "Appointments",
+                column: "DoctorId",
+                principalTable: "Doctors",
+                principalColumn: "DoctorId",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Appointments_Kullaniciler_KullaniciId",
+                table: "Appointments",
+                column: "KullaniciId",
+                principalTable: "Kullaniciler",
+                principalColumn: "KullaniciId",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Clinics_Departments_DepartmentId",
+                table: "Clinics",
+                column: "DepartmentId",
+                principalTable: "Departments",
+                principalColumn: "DepartmentId",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Clinics_Doctors_DoctorId",
+                table: "Clinics",
+                column: "DoctorId",
+                principalTable: "Doctors",
+                principalColumn: "DoctorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Appointments");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Appointments_Doctors_DoctorId",
+                table: "Appointments");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Clinics_Doctors_DoctorId",
+                table: "Clinics");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Appointments_Kullaniciler_KullaniciId",
+                table: "Appointments");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Clinics_Appointments_AppointmentId",
+                table: "Clinics");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Departments_Appointments_AppointmentId",
+                table: "Departments");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Clinics_Departments_DepartmentId",
+                table: "Clinics");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -333,22 +430,25 @@ namespace B201210597.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Doctors");
-
-            migrationBuilder.DropTable(
-                name: "Kullanici");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Clinics");
+                name: "Doctors");
+
+            migrationBuilder.DropTable(
+                name: "Kullaniciler");
+
+            migrationBuilder.DropTable(
+                name: "Appointments");
 
             migrationBuilder.DropTable(
                 name: "Departments");
+
+            migrationBuilder.DropTable(
+                name: "Clinics");
         }
     }
 }

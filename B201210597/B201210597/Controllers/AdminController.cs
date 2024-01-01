@@ -59,7 +59,7 @@ namespace B201210597.Controllers
             
                 _db.Doctors.Add(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category created successfully";
+                TempData["success"] = "Doktor created successfully";
                 return RedirectToAction("Doktor");
             
           
@@ -96,7 +96,7 @@ namespace B201210597.Controllers
            
                 _db.Doctors.Update(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category updated successfully";
+                TempData["success"] = "Doktor updated successfully";
                 return RedirectToAction("Doktor");
            
         }
@@ -131,7 +131,7 @@ namespace B201210597.Controllers
 
             _db.Doctors.Remove(obj);
             _db.SaveChanges();
-            TempData["success"] = "Category deleted successfully";
+            TempData["success"] = "Doktor deleted successfully";
             return RedirectToAction("Doktor");
 
         }
