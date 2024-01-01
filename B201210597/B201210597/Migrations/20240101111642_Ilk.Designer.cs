@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace B201210597.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231231081511_ilk")]
-    partial class ilk
+    [Migration("20240101111642_Ilk")]
+    partial class Ilk
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,6 +143,9 @@ namespace B201210597.Migrations
                     b.Property<int?>("DoctorId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SonRandevuid")
+                        .HasColumnType("int");
+
                     b.HasKey("ClinicId");
 
                     b.HasIndex("AppointmentId");
@@ -150,6 +153,8 @@ namespace B201210597.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.HasIndex("DoctorId");
+
+                    b.HasIndex("SonRandevuid");
 
                     b.ToTable("Clinics");
                 });
@@ -172,11 +177,16 @@ namespace B201210597.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SonRandevuid")
+                        .HasColumnType("int");
+
                     b.HasKey("DepartmentId");
 
                     b.HasIndex("AppointmentId");
 
                     b.HasIndex("ClinicId");
+
+                    b.HasIndex("SonRandevuid");
 
                     b.ToTable("Departments");
                 });
@@ -248,6 +258,51 @@ namespace B201210597.Migrations
                     b.HasIndex("AppointmentId");
 
                     b.ToTable("Kullaniciler");
+                });
+
+            modelBuilder.Entity("B201210597.Models.DTO.SonRandevu", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<int>("ClinicId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IsGunler")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IsSaat")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Randevular");
+                });
+
+            modelBuilder.Entity("DoctorSonRandevu", b =>
+                {
+                    b.Property<int>("DoctorsDoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Randevularid")
+                        .HasColumnType("int");
+
+                    b.HasKey("DoctorsDoctorId", "Randevularid");
+
+                    b.HasIndex("Randevularid");
+
+                    b.ToTable("DoctorSonRandevu");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -418,6 +473,10 @@ namespace B201210597.Migrations
                         .WithMany("Clinics")
                         .HasForeignKey("DoctorId");
 
+                    b.HasOne("B201210597.Models.DTO.SonRandevu", null)
+                        .WithMany("Clinics")
+                        .HasForeignKey("SonRandevuid");
+
                     b.Navigation("Department");
                 });
 
@@ -430,6 +489,10 @@ namespace B201210597.Migrations
                     b.HasOne("B201210597.Models.DTO.Clinic", null)
                         .WithMany("Departments")
                         .HasForeignKey("ClinicId");
+
+                    b.HasOne("B201210597.Models.DTO.SonRandevu", null)
+                        .WithMany("Departments")
+                        .HasForeignKey("SonRandevuid");
                 });
 
             modelBuilder.Entity("B201210597.Models.DTO.Doctor", b =>
@@ -452,6 +515,21 @@ namespace B201210597.Migrations
                     b.HasOne("B201210597.Models.DTO.Appointment", null)
                         .WithMany("KullaniciLer")
                         .HasForeignKey("AppointmentId");
+                });
+
+            modelBuilder.Entity("DoctorSonRandevu", b =>
+                {
+                    b.HasOne("B201210597.Models.DTO.Doctor", null)
+                        .WithMany()
+                        .HasForeignKey("DoctorsDoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("B201210597.Models.DTO.SonRandevu", null)
+                        .WithMany()
+                        .HasForeignKey("Randevularid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -538,6 +616,13 @@ namespace B201210597.Migrations
             modelBuilder.Entity("B201210597.Models.DTO.Kullanici", b =>
                 {
                     b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("B201210597.Models.DTO.SonRandevu", b =>
+                {
+                    b.Navigation("Clinics");
+
+                    b.Navigation("Departments");
                 });
 #pragma warning restore 612, 618
         }

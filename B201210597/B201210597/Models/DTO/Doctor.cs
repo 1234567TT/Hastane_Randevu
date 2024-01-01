@@ -9,11 +9,13 @@ namespace B201210597.Models.DTO
         public string WorkingDays { get; set; }
         public string WorkingHours { get; set; }
 
-        public int ClinicId { get; set; }
-        public Clinic Clinic { get; set; }
-		public List<Clinic> Clinics { get; set; }
+            public int ClinicId { get; set; }
+            public Clinic Clinic { get; set; }
+		    public List<Clinic> Clinics { get; set; }
 
-		public List<Appointment> Appointments { get; set; }
+        public List<SonRandevu> Randevular{ get; set; }
+
+        public List<Appointment> Appointments { get; set; }
     }
 
 }

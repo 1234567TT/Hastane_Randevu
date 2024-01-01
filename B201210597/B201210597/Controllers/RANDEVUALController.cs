@@ -1,4 +1,4 @@
-﻿using B201210597.Models.Domain;
+﻿using B201210597.Models.Domain; 
 using B201210597.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +18,8 @@ namespace B201210597.Controllers
         {
             _db = db;
         }
+
+ 
         public IActionResult cikis()
         {
             return RedirectToAction("Logout", "UserAuthentication");
@@ -25,7 +27,7 @@ namespace B201210597.Controllers
 
         public IActionResult Index()
         {
-            Appointment viewModel = new Appointment
+            SonRandevu viewModel = new SonRandevu
             {
                 Departments = _db.Departments.ToList(),
                 Clinics = _db.Clinics.ToList(),
@@ -35,6 +37,30 @@ namespace B201210597.Controllers
 
             return View(viewModel);
         }
-       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(SonRandevu obj)
+        {
+            
+            _db.Randevular.Add(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Randevu Alindi";
+            return RedirectToAction("Yazdir", obj);
+
+        }
+
+        public IActionResult Yazdir(SonRandevu obj)
+        {
+
+         //   var appointment = _db.Randevular.FirstOrDefault(r => r.id == id);
+
+            //if (appointment == null)
+            //{
+            //    return NotFound(); 
+            //}
+
+            return View(obj);
+
+        }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace B201210597.Migrations
 {
-    public partial class ilk : Migration
+    public partial class Ilk : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,23 @@ namespace B201210597.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Randevular",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DepartmentId = table.Column<int>(type: "int", nullable: false),
+                    ClinicId = table.Column<int>(type: "int", nullable: false),
+                    DoctorId = table.Column<int>(type: "int", nullable: false),
+                    IsGunler = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsSaat = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Randevular", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -202,7 +219,8 @@ namespace B201210597.Migrations
                     ClinicName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DepartmentId = table.Column<int>(type: "int", nullable: false),
                     AppointmentId = table.Column<int>(type: "int", nullable: true),
-                    DoctorId = table.Column<int>(type: "int", nullable: true)
+                    DoctorId = table.Column<int>(type: "int", nullable: true),
+                    SonRandevuid = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -212,6 +230,11 @@ namespace B201210597.Migrations
                         column: x => x.AppointmentId,
                         principalTable: "Appointments",
                         principalColumn: "AppointmentId");
+                    table.ForeignKey(
+                        name: "FK_Clinics_Randevular_SonRandevuid",
+                        column: x => x.SonRandevuid,
+                        principalTable: "Randevular",
+                        principalColumn: "id");
                 });
 
             migrationBuilder.CreateTable(
@@ -222,7 +245,8 @@ namespace B201210597.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AppointmentId = table.Column<int>(type: "int", nullable: true),
-                    ClinicId = table.Column<int>(type: "int", nullable: true)
+                    ClinicId = table.Column<int>(type: "int", nullable: true),
+                    SonRandevuid = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -237,6 +261,11 @@ namespace B201210597.Migrations
                         column: x => x.ClinicId,
                         principalTable: "Clinics",
                         principalColumn: "ClinicId");
+                    table.ForeignKey(
+                        name: "FK_Departments_Randevular_SonRandevuid",
+                        column: x => x.SonRandevuid,
+                        principalTable: "Randevular",
+                        principalColumn: "id");
                 });
 
             migrationBuilder.CreateTable(
@@ -264,6 +293,30 @@ namespace B201210597.Migrations
                         column: x => x.ClinicId,
                         principalTable: "Clinics",
                         principalColumn: "ClinicId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DoctorSonRandevu",
+                columns: table => new
+                {
+                    DoctorsDoctorId = table.Column<int>(type: "int", nullable: false),
+                    Randevularid = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorSonRandevu", x => new { x.DoctorsDoctorId, x.Randevularid });
+                    table.ForeignKey(
+                        name: "FK_DoctorSonRandevu_Doctors_DoctorsDoctorId",
+                        column: x => x.DoctorsDoctorId,
+                        principalTable: "Doctors",
+                        principalColumn: "DoctorId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DoctorSonRandevu_Randevular_Randevularid",
+                        column: x => x.Randevularid,
+                        principalTable: "Randevular",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -332,6 +385,11 @@ namespace B201210597.Migrations
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clinics_SonRandevuid",
+                table: "Clinics",
+                column: "SonRandevuid");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Departments_AppointmentId",
                 table: "Departments",
                 column: "AppointmentId");
@@ -342,6 +400,11 @@ namespace B201210597.Migrations
                 column: "ClinicId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Departments_SonRandevuid",
+                table: "Departments",
+                column: "SonRandevuid");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Doctors_AppointmentId",
                 table: "Doctors",
                 column: "AppointmentId");
@@ -350,6 +413,11 @@ namespace B201210597.Migrations
                 name: "IX_Doctors_ClinicId",
                 table: "Doctors",
                 column: "ClinicId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DoctorSonRandevu_Randevularid",
+                table: "DoctorSonRandevu",
+                column: "Randevularid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Kullaniciler_AppointmentId",
@@ -430,6 +498,9 @@ namespace B201210597.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "DoctorSonRandevu");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -449,6 +520,9 @@ namespace B201210597.Migrations
 
             migrationBuilder.DropTable(
                 name: "Clinics");
+
+            migrationBuilder.DropTable(
+                name: "Randevular");
         }
     }
 }

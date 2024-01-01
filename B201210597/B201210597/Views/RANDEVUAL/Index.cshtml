@@ -1,46 +1,54 @@
-﻿@model B201210597.Models.DTO.Appointment
+﻿@model B201210597.Models.DTO.SonRandevu
 
 
 
- 
+ <div class="container mt-3">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+<form method="post" >
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Bilgiler</h2>
+			<hr />
+		</div>
+
+                    <label>Department Sec</label>
 
 
-
-
-<label>Departman Sec</label>
-                        <select class="form-control select2"  style="width: 100%;">
+                    <select asp-for="Department" class="form-control select2" id="DepartmentId" style="width: 100%;">
     <option selected="selected" value="">Bos!</option>
     @if (Model != null && Model.Departments != null)
     {
         @foreach (var x in Model.Departments)
         {
-                    <option value="@x.DepartmentId">@x.DepartmentName</option>
-     
-       
+                                <option value="@x.DepartmentName">@x.DepartmentName</option>
         }
-   
-    
     }
 </select>
 
-    <label>Klinik Sec</label>
 
-                        <select class="form-control select2"  style="width: 100%;">
+    	<div class="mb-3">
+                        <label>Klinik Sec</label>
+
+
+						<select asp-for="Clinic" class="form-control select2" id="ClinicId" style="width: 100%;">
     <option selected="selected" value="">Bos!</option>
     @if (Model != null && Model.Clinics != null)
     {
         @foreach (var x in Model.Clinics)
         {
-          
-                <option value="@x.ClinicId">@x.ClinicName</option>
-            
-
+            <option value="@x.ClinicName">@x.ClinicName</option>
         }
     }
 </select>
+
+															
+		</div>
+
  <label>Doktor Sec</label>
 
-                        <select class="form-control select2"  style="width: 100%;">
+
+                    <select asp-for="Doctor" class="form-control select2" id="DoctorId" style="width: 100%;">
     <option selected="selected" value="">Bos!</option>
     @if (Model != null && Model.Doctors != null)
     {
@@ -48,42 +56,45 @@
         {
            
             
-                            <option value="@x.DoctorId">@x.DoctorName</option>
+                            <option value="@x.DoctorName">@x.DoctorName</option>
             
 
         }
     }
 </select>
-<label>GunLetr Sec</label>
+                    <label>GunLer Sec</label>
+                    <select asp-for="IsGunler" class="form-control select2" id="IsGunler" style="width: 100%;">
+                        <option selected="selected" value="">Bos!</option>
+                        @if (Model != null && Model.Doctors != null)
+                        {
+                            @foreach (var x in Model.Doctors)
+                            {
+                                <option value="@x.WorkingDays">@x.WorkingDays</option>
+                            }
+                        }
+                    </select>
 
-                        <select class="form-control select2"  style="width: 100%;">
-    <option selected="selected" value="">Bos!</option>
-    @if (Model != null && Model.Doctors != null)
-    {
-        @foreach (var x in Model.Doctors)
-        {
-
-
-                                    <option value="@x.DoctorId">@x.WorkingDays</option>
-
-
-        }
+                    <label>Saat Sec</label>
+                    <select asp-for="IsSaat" class="form-control select2" id="IsSaat" style="width: 100%;">
+                        <option selected="selected" value="">Bos!</option>
+                        @if (Model != null && Model.Doctors != null)
+                        {
+                            @foreach (var x in Model.Doctors)
+                            {
+                                <option value="@x.WorkingHours">@x.WorkingHours</option>
+                            }
+                        }
+                    </select>   <button type="submit" class="btn btn-primary" style="width:150px">Ekle</button>
+                    <a asp-controller="RandevuAL" asp-action="Doktor" class="btn btn-secondary" style="width:150px">
+                        Geri Don
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
     }
-</select>
-
-<label>Saat Sec</label>
-
-                        <select class="form-control select2"  style="width: 100%;">
-    <option selected="selected" value="">Bos!</option>
-    @if (Model != null && Model.Doctors != null)
-    {
-        @foreach (var x in Model.Doctors)
-        {
-
-
-                                            <option value="@x.DoctorId">@x.WorkingHours</option>
-
-
-        }
-    }
-</select>
+}

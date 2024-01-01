@@ -51,12 +51,7 @@ namespace B201210597.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateDoctor(Doctor obj)
         {
-            //if (obj.Name == obj.DisplayOrder.ToString())
-            //{
-            //    ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
-            //}
-         //   if (ModelState.IsValid)
-            
+
                 _db.Doctors.Add(obj);
                 _db.SaveChanges();
                 TempData["success"] = "Doktor created successfully";
@@ -65,7 +60,7 @@ namespace B201210597.Controllers
           
         }
 
-        //GET
+
         public IActionResult EditDoktor(int? id)
         {
             if (id == null || id == 0)
@@ -73,8 +68,6 @@ namespace B201210597.Controllers
                 return NotFound();
             }
             var categoryFromDb = _db.Doctors.Find(id);
-            //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
-            //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
 
             if (categoryFromDb == null)
             {
@@ -89,10 +82,7 @@ namespace B201210597.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditDoktor(Doctor obj)
         {
-            //if (obj.Name == obj.DisplayOrder.ToString())
-            //{
-            //    ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
-            //}
+
            
                 _db.Doctors.Update(obj);
                 _db.SaveChanges();
@@ -108,9 +98,7 @@ namespace B201210597.Controllers
                 return NotFound();
             }
             var categoryFromDb = _db.Doctors.Find(id);
-            //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
-            //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
-
+            
             if (categoryFromDb == null)
             {
                 return NotFound();

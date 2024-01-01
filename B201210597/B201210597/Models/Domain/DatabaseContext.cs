@@ -16,7 +16,9 @@ namespace B201210597.Models.Domain
         }
 		public DbSet<Department> Departments { get; set; }
 
-		public DbSet<Clinic> Clinics { get; set; }
+        public DbSet<SonRandevu> Randevular{ get; set; }
+
+        public DbSet<Clinic> Clinics { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Kullanici> Kullaniciler { get; set; }
@@ -46,6 +48,9 @@ namespace B201210597.Models.Domain
                 .HasOne(a => a.Doctor)
                 .WithMany(d => d.Appointments)
                 .HasForeignKey(a => a.DoctorId);
+
+
+
 
 
             base.OnModelCreating(modelBuilder);

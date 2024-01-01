@@ -10,7 +10,6 @@
         public string TC { get; set; }
 public string Emial { get; set; }
         public string Password { get; set; }
-        // Other user information
         public List<Appointment> Appointments { get; set; }
 
     }
