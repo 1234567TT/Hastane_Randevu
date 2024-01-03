@@ -4,6 +4,7 @@
 <style>
     body {
         font-size: 18px; /* Adjust the base font size */
+        background-color: powderblue;
     }
 
     .container {
@@ -12,7 +13,7 @@
 
     label.font-weight-bold {
         font-size: 1.5em; /* Adjust the font size for bold labels */
-        color: green;
+        color: black;
     }
 
     input.form-control {
@@ -26,7 +27,12 @@
     a.btn {
         font-size: 1.2em; /* Adjust the font size for anchor buttons */
     }
+
+    
+
+   
 </style>
+
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -54,8 +60,8 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
-                    <a href="/UserAuthentication/Registration" class="btn btn-primary">Üye Ol</a>
+                    <button type="submit" class="btn btn-light">Giriş Yap</button>
+                    <a href="/UserAuthentication/Registration" class="btn btn-light">Üye Ol</a>
                 </div>
             </form>
         </div>
@@ -65,32 +71,3 @@
 <br />
 <br />
 <br />
-
-   @* <form asp-action="Login" method="post">
-
-        <div class="container">
-            <label asp-for="Username"><b>Username</b></label>
-            <input type="text" asp-for="Username" placeholder="Enter Username">
-            <div class="msg">
-                <span class="err" asp-validation-for="Username"></span>
-            </div>
-
-
-
-            <label asp-for="Password"><b>Password</b></label>
-            <input type="password" asp-for="Password" placeholder="Enter Password">
-            <div class="msg">
-                <span asp-validation-for="Password" class="err"></span>
-            </div>
-
-
-            @if (TempData["msg"] != null)
-            {
-                <div class="msg">@TempData["msg"]</div>
-            }
-
-            <button type="submit">Login</button>
-            <a class="text-alert" href="/UserAuthentication/Registration">Not a user? Signup</a>
-        </div>
-    </form>*@
-

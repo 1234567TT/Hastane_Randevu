@@ -15,122 +15,70 @@
  <header>
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-              <a class="nav-link dropdown-toggle btn btn-info" href="#" style="width: 10%; id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle btn btn-link" href="#" style="width: 10%; id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         DİL SEÇ
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">TÜRKÇE</a></li>
-           
-     <li><a class="dropdown-item" href="#">ARAPÇA</a></li>
-        <li><a class="dropdown-item" href="#">İNGLİZCE</a></li>
+
+         @if(User.IsInRole("user"))
+            {
+                <li><a class="dropdown-item" href="/KontrolPaneliDenetleyici/Display1">İNGLİZCE</a></li>
+            }else{
+
+            <li><a class="dropdown-item" href="/UserAuthentication/Login1">İNGLİZCE</a></li>
+            }
+     
     </ul>
             <div class="container-fluid text-center">
-                <h1 class="mx-auto" style="color: green;">Hastane randevu rezervasyon sistemi</h1>
+            <h1 class="mx-auto" style="color: darkblue;">Hastane randevu rezervasyon sistemi</h1>
            
             </div>
             @if(User.IsInRole("user"))
             {
             <div>
-                <a class="btn btn-primary" style="color: black;" href="/UserAuthentication/Logout">ÇIKIŞ</a>
+                <a class="btn btn-light" style="color: black;" href="/UserAuthentication/Logout">ÇIKIŞ</a>
             </div>
             }
+<style>
 
+   
+</style>
 
        
         </nav>
 </header>
 
+
 <body>
-   
-       
+
+    <div class="custom-background">
 
     <div class="container">
         <main role="main" class="pb-3">
-       
 
+                <a href="/RandevuAl/Index" class="btn btn-light">Randevu Al</a>
+    <a href="#" class="btn btn-light" role="button" data-bs-toggle="button">İletişim Sayfa</a>
+
+        
 @RenderBody()
 
     </div>
-    <a href="/RandevuAl/Index" class="btn btn-primary">Randevu Al</a>
-    <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">İletişim SAYFA</a>
-
-    <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">Hastanada Genel Bilgiler</a>
-
-    @* <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Dot net 6 authentication</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="/Dashboard/Display">Dashboard</a></li>
-                @if (User.IsInRole("admin"))
-                {
-                    <li><a href="/Admin/Display">Admin Page</a></li>
-                }
-                @if (!string.IsNullOrEmpty(User.Identity.Name))
-                {
-                    <li><a href="/UserAuthentication/ChangePassword">ChangePassword</a></li>
-                    <li><a href="/UserAuthentication/Logout">Logout</a></li>
-                }
-            </ul>
-        </div>
-    </nav>*@
+  
+    
     </main>
-
+    </div>
     <footer class="border-top footer text-muted">
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    </div>
+
 </body>
+
+
+
 </html>
 
-
-
-               @*     <div id="list-example" class="list-group">
-  <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-  <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-  <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-  <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-</div>
-<div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-  <h4 id="list-item-1">Item 1</h4>
-  <p>...</p>
-  <h4 id="list-item-2">Item 2</h4>
-  <p>...</p>
-  <h4 id="list-item-3">Item 3</h4>
-  <p>...</p>
-  <h4 id="list-item-4">Item 4</h4>
-  <p>...</p>
-</div>
-*@
-
-
-
-
-  <div class="spinner-grow text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-secondary" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-success" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-warning" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-info" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-light" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-dark" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>

@@ -33,6 +33,8 @@ namespace B201210597.Controllers
             List<Department> Departments = new List<Department>();
             //var response = await client.GetAsync("https://localhost:7286/api/ApiDepartment");
             var jsonResponse = await response.Content.ReadAsStringAsync();
+
+
             Departments = JsonConvert.DeserializeObject<List<Department>>(jsonResponse);
 
 

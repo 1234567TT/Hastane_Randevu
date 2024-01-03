@@ -32,6 +32,20 @@ namespace B201210597.Controllers
             return View();
         }
 
+        public IActionResult Display1()
+        {
+
+
+
+            if (User.IsInRole("admin"))
+            {
+
+                return RedirectToAction("Display", "Admin");
+
+            }
+            return View();
+        }
+
         public IActionResult Index()
         {
 

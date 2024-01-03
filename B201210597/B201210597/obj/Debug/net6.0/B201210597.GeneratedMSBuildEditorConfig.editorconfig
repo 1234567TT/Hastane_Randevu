@@ -92,6 +92,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29udHJvbFBhbmVsaURlbmV0bGV5aWNpXERpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/KontrolPaneliDenetleyici/Display1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29udHJvbFBhbmVsaURlbmV0bGV5aWNpXERpc3BsYXkxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/Kullanici/CreateKullanici.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS3VsbGFuaWNpXENyZWF0ZUt1bGxhbmljaS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -148,8 +152,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/UserAuthentication/Login1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uXExvZ2luMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/UserAuthentication/Registration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uXFJlZ2lzdHJhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/UserAuthentication/Registration1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uXFJlZ2lzdHJhdGlvbjEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/APC/OneDrive/Desktop/Hastane_Randevu/Hastane_Randevu/B201210597/B201210597/Views/_ViewImports.cshtml]
